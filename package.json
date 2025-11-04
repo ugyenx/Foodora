@@ -1,0 +1,23 @@
+{
+  "name": "foodora",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "parcel": "^2.16.0",
+    "tailwindcss": "^4.1.16"
+  },
+  "dependencies": {
+    "@hugeicons/core-free-icons": "^1.2.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0"
+  }
+}

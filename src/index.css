@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+}
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+}
+/* 🎨 Primary Colors:
+
+* Bright Red – #E63946 → used for buttons (“View Menu”, “Sign Up”) and highlights.
+
+* White – #FFFFFF → background and text contrast.
+
+* Soft Gray – #F6F5F3 → used for card backgrounds and subtle sections.
+
+* Charcoal Black – #1A1A1A → main heading text.
+
+* Light Beige – #F2EDEB → page background (slight warm tone).
+
+🥗 Accent Colors:
+* 6. Tomato Red – #F85C50 → accent for notifications or hover effects.
+* 7. Leaf Green – #6DBE45 → accent for freshness (used in garnish/vegetables).
+* 8. Gold Yellow – #FFC107 → used in star ratings.
+* 9. Shadow Gray – #D3D3D3 → used for soft shadows and dividers.
+
+🧾 Typography:
+
+* Large headline font color: #1A1A1A
+
+* Secondary text color: #6B6B6B */
+
+/* Make sure html and body take full height */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  /* background-color: #ffffff; or a light tone like #F6F5F3 */
+}
+
+/* Set font family (you'll add this in next step) */
+body {
+  font-family: "Poppins";
+  color: #1a1a1a;
+  background-color: #f2edeb;
+}
