@@ -6,6 +6,9 @@
 @theme {
   --font-poppins: "Poppins", sans-serif;
 }
+@theme {
+  --my-color: #f85c50;
+}
 /* 🎨 Primary Colors:
 
 * Bright Red – #E63946 → used for buttons (“View Menu”, “Sign Up”) and highlights.
