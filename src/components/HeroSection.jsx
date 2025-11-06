@@ -6,14 +6,20 @@ const HeroSection = () => {
     <section className="flex items-center justify-between mx-45 mt-18">
       <div className=" w-2/5">
         <h1 className="text-7xl font-semibold mb-13">
-          It’s not just <span className="text-red-500">Food</span>, It’s an
+          It’s not just <span className="text-(--primary)">Food</span>, It’s an
           Experience.
         </h1>
         <div className="flex gap-2">
-          <button className="bg-red-500 text-white px-6 py-3  rounded-4xl mr-5 font-roboto hover:bg-(--my-color)">
+          <button
+            className="bg-(--primary) text-white px-6 py-3  rounded-4xl mr-5  hover:bg-(--my-color) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg
+"
+          >
             View Resto
           </button>
-          <button className="bg-gray-300 text-black px-6 py-3 rounded-4xl font-roboto hover:bg-(--my-color)">
+          <button
+            className="bg-(--white-b) text-black px-6 py-3 rounded-4xl  hover:bg-(--my-color) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg
+"
+          >
             Order
           </button>
         </div>

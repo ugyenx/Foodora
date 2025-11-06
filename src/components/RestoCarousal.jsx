@@ -1,33 +1,22 @@
-import { useState, useEffect, useMemo } from "react";
-import { RESTO_API } from "../constants/constants";
+import { useState, useMemo } from "react";
 import CarousalCard from "./CarousalCard";
-import Navbar from "./Navbar";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import useFetchResto from "../hooks/useFetchResto";
 
 const ITEMS_PER_PAGE = 4;
 
 const RestoCarousal = () => {
-  const [restInfo, setrestInfo] = useState([]);
   const [currentIndex, setcurrentIndex] = useState(0);
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(RESTO_API);
-    const json = await data.json();
-
-    const restaurants =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ||
-      [];
-    setrestInfo(restaurants);
-
-    console.log(json);
-  };
+  const restObject = useFetchResto();
+  const restaurants =
+    restObject?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      ?.restaurants ||
+    restObject?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      ?.restaurants ||
+    [];
+  const restInfo = restaurants;
+  console.log(restInfo);
   const totalItems = restInfo.length;
   const visibleItems = useMemo(() => {
     return restInfo.slice(currentIndex, currentIndex + ITEMS_PER_PAGE);
@@ -55,14 +44,26 @@ const RestoCarousal = () => {
   return restInfo.length === 0 ? (
     <h1>Hello not Workiong</h1>
   ) : (
-    <section className="flex justify-around items-center mx-45">
-      <FaLongArrowAltLeft onClick={handlePrev} />
-      <div className="flex gap-4  w-[250px]">
+    <section className="flex justify-around items-center mx-45 mt-20 ">
+      <div className="bg-gray-500 rounded-full p-3 hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer">
+        <FaLongArrowAltLeft
+          onClick={handlePrev}
+          size={20}
+          className="text-white"
+        />
+      </div>
+      <div className="flex gap-4">
         {visibleItems.map((restaurants) => (
           <CarousalCard key={restaurants.info.id} restData={restaurants} />
         ))}
       </div>
-      <FaLongArrowAltRight onClick={handleNext} />
+      <div className="bg-gray-500 rounded-full p-3 hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer">
+        <FaLongArrowAltRight
+          onClick={handleNext}
+          size={20}
+          className="text-white"
+        />
+      </div>
     </section>
   );
 };
