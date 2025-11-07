@@ -1,30 +1,32 @@
 import { CiShoppingCart } from "react-icons/ci";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="flex justify-between mx-45 my-9">
-      {/* <div className="flex ">
-        <h1 className="text-3xl font-bold tracking-wide">F</h1>
-        <h1 className="text-3xl font-bold text-(--primary) tracking-wide">
-          OO
-        </h1>
-        <h1 className="text-3xl font-bold tracking-wide">DORA</h1>
-      </div> */}
       <h1 className="text-4xl font-bold tracking-wide font-logo">
         F<span className=" text-(--primary)">OO</span>DORA
       </h1>
       <ul className="flex gap-20 text-lg  pt-2 font-semibold tracking-wider text-gray-900 ">
-        <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2 ">
-          Home
-        </li>
-        <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2">
-          Restaurant
-        </li>
-        <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2">
-          About Us
-        </li>
-        <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2">
-          Contact
-        </li>
+        <Link to={"/"}>
+          <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2 ">
+            Home
+          </li>
+        </Link>
+        <Link to={"/restaurant"}>
+          <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2">
+            Restaurant
+          </li>
+        </Link>
+        <Link to={"/about"}>
+          <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2">
+            About Us
+          </li>
+        </Link>
+        <Link to={"/contact"}>
+          <li className="hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2">
+            Contact
+          </li>
+        </Link>
       </ul>
       <div className="flex gap-5 items-center justify-start mr-15">
         <CiShoppingCart

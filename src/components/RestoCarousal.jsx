@@ -16,7 +16,6 @@ const RestoCarousal = () => {
       ?.restaurants ||
     [];
   const restInfo = restaurants;
-  console.log(restInfo);
   const totalItems = restInfo.length;
   const visibleItems = useMemo(() => {
     return restInfo.slice(currentIndex, currentIndex + ITEMS_PER_PAGE);
@@ -45,23 +44,23 @@ const RestoCarousal = () => {
     <h1>Hello not Workiong</h1>
   ) : (
     <section className="flex justify-around items-center mx-45 mt-20 ">
-      <div className="bg-gray-500 rounded-full p-3 hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer">
+      <div className="bg-gray-500 rounded-full  hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer">
         <FaLongArrowAltLeft
           onClick={handlePrev}
           size={20}
-          className="text-white"
+          className="text-white m-3"
         />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 mx-4">
         {visibleItems.map((restaurants) => (
           <CarousalCard key={restaurants.info.id} restData={restaurants} />
         ))}
       </div>
-      <div className="bg-gray-500 rounded-full p-3 hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer">
+      <div className="bg-gray-500 rounded-full  hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer">
         <FaLongArrowAltRight
           onClick={handleNext}
           size={20}
-          className="text-white"
+          className="text-white m-3"
         />
       </div>
     </section>
