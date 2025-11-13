@@ -1,12 +1,15 @@
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
-import RestoCarousal from "../components/RestoCarousal";
+import RestaurantCarousal from "../components/RestaurantCarousal";
+import React from "react";
 const Home = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <HeroSection />
-      <RestoCarousal />
+      <div className="mb-25">
+        <HeroSection />
+      </div>
+      <RestaurantCarousal />
     </>
   );
 };

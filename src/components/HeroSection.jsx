@@ -1,11 +1,11 @@
 // import pizza from "url:../assets/pizza.png";
-import hero from "url:../assets/hero.png";
-
+import hero from "../assets/hero.png";
+import React from "react";
 const HeroSection = () => {
   return (
-    <section className="flex items-center justify-between mx-45 mt-18">
+    <section className="flex items-center justify-between  mt-18">
       <div className=" w-2/5">
-        <h1 className="text-7xl font-semibold mb-13">
+        <h1 className="text-7xl font-semibold mb-13 text-left">
           It’s not just <span className="text-(--primary)">Food</span>, It’s an
           Experience.
         </h1>
@@ -24,7 +24,7 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
-      <div className="mr-30">
+      <div className="">
         <img src={hero} alt="hero-image" className="w-[600px]" />
       </div>
     </section>

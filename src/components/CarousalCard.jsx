@@ -1,5 +1,6 @@
 import { TbShoppingCartCopy } from "react-icons/tb";
 import { RESTO_IMG_URL } from "../constants/constants";
+import React from "react";
 
 const CarousalCard = (props) => {
   const { restData } = props;

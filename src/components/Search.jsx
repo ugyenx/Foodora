@@ -1,7 +1,8 @@
 import { LiaSearchSolid } from "react-icons/lia";
+import React from "react";
 const Search = () => {
   return (
-    <section className=" mx-45 my-15">
+    <section className="  my-15">
       <div className="relative justify-center items-center flex">
         <input
           type="text"

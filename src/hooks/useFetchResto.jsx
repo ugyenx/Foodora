@@ -8,7 +8,6 @@ const useFetchResto = () => {
   const fetchResto = async () => {
     const data = await fetch(RESTO_API);
     const json = await data.json();
-    console.log(json);
     setRestInfo(json);
   };
   return restInfo;

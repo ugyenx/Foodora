@@ -1,8 +1,9 @@
 import { CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import React from "react";
 const Navbar = () => {
   return (
-    <nav className="flex justify-between mx-45 my-9">
+    <nav className="flex justify-between  my-9">
       <h1 className="text-4xl font-bold tracking-wide font-logo">
         F<span className=" text-(--primary)">OO</span>DORA
       </h1>
@@ -28,7 +29,7 @@ const Navbar = () => {
           </li>
         </Link>
       </ul>
-      <div className="flex gap-5 items-center justify-start mr-15">
+      <div className="flex gap-5 items-center justify-">
         <CiShoppingCart
           className="text-3xl font-bold text-black mr-1.5 hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2
 "
