@@ -18,9 +18,9 @@ const CarousalCard = (props) => {
               className="w-50 h-50 object-cover rounded-full shadow-xl shadow-gray-500/50"
             />
           </div>
-          <div className="absolute -top-20 right-5 bg-black text-white p-2 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-3xl cursor-pointer hover:bg-gray-800">
+          {/* <div className="absolute -top-20 right-5 bg-black text-white p-2 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-3xl cursor-pointer hover:bg-gray-800">
             <TbShoppingCartCopy size={25} />
-          </div>
+          </div> */}
         </div>
 
         <div className="text-center ">

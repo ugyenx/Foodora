@@ -8,12 +8,17 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { MdRestaurantMenu } from "react-icons/md";
+import { Provider } from "react-redux";
+import appStore from "./constants/appStore";
+import Cart from "./pages/Cart";
 const App = () => {
   return (
-    <div className=" mx-55">
-      <Navbar />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className=" mx-55">
+        <Navbar />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 const appRoute = createBrowserRouter([
@@ -40,6 +45,10 @@ const appRoute = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

@@ -1,7 +1,11 @@
 import { CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import React from "react";
+import { useSelector } from "react-redux";
+import appStore from "../constants/appStore";
 const Navbar = () => {
+  const data = useSelector((store) => store.cart.items);
+  console.log(data);
   return (
     <nav className="flex justify-between  my-9">
       <h1 className="text-4xl font-bold tracking-wide font-logo">
@@ -30,10 +34,15 @@ const Navbar = () => {
         </Link>
       </ul>
       <div className="flex gap-5 items-center justify-">
-        <CiShoppingCart
-          className="text-3xl font-bold text-black mr-1.5 hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2
+        <Link to={"/cart"}>
+          <div className="flex ">
+            <CiShoppingCart
+              className="text-3xl font-bold text-black mr-1.5 hover:text-(--primary) transition-transform duration-300 hover:-translate-y-2
 "
-        />
+            />
+            <p>items - {data.length}</p>
+          </div>
+        </Link>
         <button
           className="bg-(--primary) text-white px-5 py-3  rounded-4xl hover:bg-(--my-color) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg
 "
