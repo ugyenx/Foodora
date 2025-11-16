@@ -43,12 +43,13 @@ const Navbar = () => {
             <p>items - {data.length}</p>
           </div>
         </Link>
+        <Link to={"/login"}>
         <button
           className="bg-(--primary) text-white px-5 py-3  rounded-4xl hover:bg-(--my-color) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg
 "
         >
           Sign Up
-        </button>
+        </button></Link>
       </div>
     </nav>
   );

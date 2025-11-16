@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import ReactDOM from "react-dom/client";
 import React from "react";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 import About from "./pages/About";
@@ -11,11 +11,18 @@ import { MdRestaurantMenu } from "react-icons/md";
 import { Provider } from "react-redux";
 import appStore from "./constants/appStore";
 import Cart from "./pages/Cart";
+import Auth from "./pages/Auth";
 const App = () => {
+  const location = useLocation();
+
+  // hide navbar on login page
+  // const hideNavbar = location.pathname === "/login" || ;
+  const hideNavbar = ["/login", "/signup"].includes(location.pathname);
+
   return (
     <Provider store={appStore}>
       <div className=" mx-55">
-        <Navbar />
+        {!hideNavbar && <Navbar />}
         <Outlet />
       </div>
     </Provider>
@@ -49,6 +56,15 @@ const appRoute = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+
+      {
+        path: "/login",
+        element: <Auth mode="login" />,
+      },
+      {
+        path: "/signup",
+        element: <Auth mode={"signup"} />,
       },
     ],
   },

@@ -7,9 +7,10 @@
 }
 
 @theme {
+  --primary: #d31b27; 
   --my-color: #e64048;
   --soft-gray: #f6f5f3;
-  --primary: #d31b27; /* red */
+  --primary: #d31b27; 
   --main-bg: #e6e0e0;
   --white-b: #f2f2f2;
 }
