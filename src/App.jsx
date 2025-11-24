@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <Provider store={appStore}>
-      <div className=" mx-55">
+      <div className="mx-4 md:mx-20 lg:mx-40 xl:mx-55">
         {!hideNavbar && <Navbar />}
         <Outlet />
       </div>

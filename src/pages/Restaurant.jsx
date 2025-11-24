@@ -14,7 +14,7 @@ const Restaurant = () => {
     <section>
       <Search />
       <div>
-        <div className="px-18 pb-5">
+        <div className="px-18 ">
           <hr className=" border-blue-500/10 pb-7 " />
           <h3 className="text-lg font-semibold ">Popular Restaurants</h3>
         </div>
@@ -22,14 +22,14 @@ const Restaurant = () => {
           <RestoCarousal />
         </div>
       </div>
-      <div className="px-18 pb-5 pt-5">
+      <div className="px-18 pb-10 pt-5">
         <hr className=" border-blue-500/10 pb-7 " />
         <h3 className="text-lg font-semibold ">All Restaurants</h3>
       </div>
       <div className="  pt-10">
-        <div className="flex gap-4 justify-center flex-wrap scale-93">
+        <div className="flex gap-6 justify-center flex-wrap scale-93">
           {restList.map((res) => (
-            <div key={res.info.id} className="mb-18">
+            <div key={res.info.id} className="mb-25">
               <Link to={"/restaurant/" + res.info.id}>
                 <CarousalCard restData={res} />
               </Link>

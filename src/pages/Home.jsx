@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="mb-25">
+      <div className="">
         <HeroSection />
       </div>
       <RestaurantCarousal />
