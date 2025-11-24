@@ -9,7 +9,6 @@ const useFetchMenu = (resId) => {
     const data = await fetch(MENU_API + resId);
     const json = await data.json();
     setmenuInfo(json.data);
-    console.log(json);
   };
   return menuInfo;
 };
