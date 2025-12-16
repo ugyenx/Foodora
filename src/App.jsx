@@ -10,8 +10,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { MdRestaurantMenu } from "react-icons/md";
 import { Provider } from "react-redux";
 import appStore from "./constants/appStore";
-import Cart from "./pages/Cart";
 import Auth from "./pages/Auth";
+import CartPage from "./pages/CartPage";
 const App = () => {
   const location = useLocation();
 
@@ -55,7 +55,7 @@ const appRoute = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: <CartPage />,
       },
 
       {
