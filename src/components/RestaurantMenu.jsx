@@ -21,7 +21,10 @@ const RestaurantMenu = () => {
     totalRatingsString,
     costForTwoMessage,
     sla,
+    cloudinaryImageId
   } = menuInfo.cards[2]?.card?.card?.info;
+
+  const restaurantInfo = { name, areaName, cloudinaryImageId };
   const categories =
     menuInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
       (c) =>
@@ -75,7 +78,7 @@ const RestaurantMenu = () => {
       </div>
       <div className="mt-10 mx-5">
         {categories.map((items) => (
-          <RestaurantCategories key={items.card.card.categoryId} data={items} />
+          <RestaurantCategories key={items.card.card.categoryId} data={items} restaurantInfo={restaurantInfo} />
         ))}
       </div>
     </div>

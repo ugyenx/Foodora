@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import MenuCard from "./MenuCard";
-const RestaurantCategories = ({ data }) => {
+const RestaurantCategories = ({ data, restaurantInfo }) => {
   const [showItem, setshowItem] = useState(true);
   const handleClick = () => {
     showItem ? setshowItem(false) : setshowItem(true);
@@ -23,7 +23,7 @@ const RestaurantCategories = ({ data }) => {
         {data?.card?.card?.itemCards.map(
           (item) =>
             showItem && (
-              <MenuCard key={item.card.info.id} items={item.card.info} />
+              <MenuCard key={item.card.info.id} items={item.card.info} restaurantInfo={restaurantInfo} />
             )
         )}
       </div>

@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import CarousalCard from "./CarousalCard";
+import { ShimmerCarousel } from "./Shimmer";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import useFetchResto from "../hooks/useFetchResto";
@@ -61,11 +62,13 @@ const RestaurantCarousal = () => {
   };
 
   return restInfo.length === 0 ? (
-    <h1 className="text-center mt-10">Loading...</h1>
+    <section className="flex justify-center items-center mt-10">
+      <ShimmerCarousel />
+    </section>
   ) : (
-    <section className="flex justify-center items-center mt-10 md:mt-20">
+    <section className="flex justify-center items-center mt-32">
       <div
-        className={`bg-gray-500 rounded-full p-2 hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer ${isAtStart ? 'opacity-50 cursor-not-allowed' : ''}`}
+        className={`bg-gray-500 rounded-full p-2 hover:bg-[#d31b27] transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer ${isAtStart ? 'opacity-50 cursor-not-allowed' : ''}`}
         onClick={!isAtStart ? handlePrev : undefined}
       >
         <FaLongArrowAltLeft
@@ -73,19 +76,19 @@ const RestaurantCarousal = () => {
           className="text-white"
         />
       </div>
-      <div className="flex justify-center gap-4 mx-2 md:mx-4 w-full overflow-hidden pt-32">
+      <div className="flex justify-center gap-4 mx-2 md:mx-4 w-full pt-10 px-4 py-8">
         {visibleItems.map((restaurants) => (
           <Link
             to={"/restaurant/" + restaurants.info.id}
             key={restaurants.info.id}
-            className="flex-shrink-0"
+            className="flex-shrink-0 w-[280px]"
           >
             <CarousalCard restData={restaurants} />
           </Link>
         ))}
       </div>
       <div
-        className={`bg-gray-500 rounded-full p-2 hover:bg-(--primary) transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer ${isAtEnd ? 'opacity-50 cursor-not-allowed' : ''}`}
+        className={`bg-gray-500 rounded-full p-2 hover:bg-[#d31b27] transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer ${isAtEnd ? 'opacity-50 cursor-not-allowed' : ''}`}
         onClick={!isAtEnd ? handleNext : undefined}
       >
         <FaLongArrowAltRight

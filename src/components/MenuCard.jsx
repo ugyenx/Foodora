@@ -3,10 +3,10 @@ import { FaStar } from "react-icons/fa";
 import { RESTO_IMG_URL } from "../constants/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../constants/cartSlice";
-const MenuCard = ({ items }) => {
+const MenuCard = ({ items, restaurantInfo }) => {
   const dispatch = useDispatch();
   const handleAdd = (items) => {
-    dispatch(addItem(items));
+    dispatch(addItem({ item: items, restaurant: restaurantInfo }));
   };
   return (
     <div>

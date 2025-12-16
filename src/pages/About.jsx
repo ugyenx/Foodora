@@ -1,282 +1,166 @@
-import { Ds3ToolFreeIcons } from '@hugeicons/core-free-icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Star, Check, Heart, User, Zap, Leaf } from 'lucide-react';
 
-// Color palette from previous components
-const COLORS = {
-  primary: '#d31b27',
-  myColor: '#e64048',
-  softGray: '#f6f5f3',
-  mainBg: '#e6e0e0',
-  whiteB: '#f2f2f2',
-};
-
-// --- SVG Icon Components ---
-// (Simple, inline SVGs to avoid external dependencies)
-
-const StarIcon = () => (
-  <svg
-    className="w-5 h-5 inline-block text-yellow-400"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-  >
-    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.846 5.673a1 1 0 00.95.69h5.968c.969 0 1.371 1.24.588 1.81l-4.83 3.522a1 1 0 00-.364 1.118l1.846 5.673c.3.921-.755 1.688-1.54 1.118l-4.83-3.522a1 1 0 00-1.176 0l-4.83 3.522c-.784.57-1.838-.197-1.54-1.118l1.846-5.673a1 1 0 00-.364-1.118L.588 11.09c-.783-.57-.38-1.81.588-1.81h5.968a1 1 0 00.95-.69L9.049 2.927z" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg
-    className="w-6 h-6 inline-block text-green-500 mr-2"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M5 13l4 4L19 7"
-    />
-  </svg>
-);
-
-const HeartIcon = () => (
-  <svg
-    className="w-10 h-10 text-[#e64048]"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-    />
-  </svg>
-);
-
-const BoltIcon = () => (
-  <svg
-    className="w-10 h-10 text-[#e64048]"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M13 10V3L4 14h7v7l9-11h-7z"
-    />
-  </svg>
-);
-
-const LeafIcon = () => (
-  <svg
-    className="w-10 h-10 text-[#e64048]"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M14.121 14.121L12 16.242l-2.121-2.121m2.121-2.121L14.121 10 12 7.879 9.879 10m2.121 2.121L12 12m0 0l-2.121 2.121M12 12l2.121 2.121M12 12l2.121-2.121M12 12L9.879 9.879m2.121 2.121L12 12m0 0l-2.121 2.121m2.121-2.121L9.879 12m2.121 2.121L12 14.121m0 0L9.879 12m2.121 2.121L12 12m6 6l-6-6 6-6-6 6 6 6z"
-    />
-  </svg>
-);
-
-/**
- * The main About Us Page component.
- */
-const About =() => {
+const About = () => {
   return (
-    <div className="w-full min-h-screen bg-[#e6e0e0] py-12 px-4 sm:px-8">
-      <div className="w-full max-w-4xl mx-auto p-8 sm:p-12 bg-[#f6f5f3] rounded-xl shadow-2xl">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-[#d31b27]">
-            Welcome to FOODORA
-          </h1>
-          <p className="text-xl text-gray-600 mt-3">
-            Your daily food adventure starts here.
-          </p>
-        </div>
-
-        {/* Main Content Section */}
-        <div className="space-y-12 text-gray-700 leading-relaxed">
-          {/* --- Our Story --- */}
-          <section>
-            <h2 className="text-3xl font-semibold text-[#e64048] mb-4">
-              Our Story
-            </h2>
-            <p>
-              FOODORA was born from a simple idea: good food should be easy to
-              find and a joy to order. We saw a world full of amazing local
-              restaurants and passionate chefs, but not everyone had the time to
-              discover them. We wanted to bridge that gap, bringing the best
-              local flavors right to your doorstep, one tap at a time.
-            </p>
-          </section>
-
-          {/* --- Our Values --- */}
-          <section>
-            <h2 className="text-3xl font-semibold text-[#e64048] mb-6 text-center">
-              Our Values
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div className="flex flex-col items-center">
-                <HeartIcon />
-                <h3 className="text-xl font-semibold mt-3 mb-1">Local Love</h3>
-                <p className="text-sm">Championing neighborhood eateries.</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <LeafIcon />
-                <h3 className="text-xl font-semibold mt-3 mb-1">
-                  Quality First
-                </h3>
-                <p className="text-sm">Delivering only the freshest dishes.</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <BoltIcon />
-                <h3 className="text-xl font-semibold mt-3 mb-1">
-                  Speed & Service
-                </h3>
-                <p className="text-sm">Hot, fresh, and reliable every time.</p>
-              </div>
-            </div>
-          </section>
-
-          {/* --- Why Choose Us? --- */}
-          <section>
-            <h2 className="text-3xl font-semibold text-[#e64048] mb-6">
-              Why Choose Us?
-            </h2>
-            <ul className="space-y-4">
-              <li className="flex items-center">
-                <CheckIcon />
-                <div>
-                  <span className="font-semibold">Vast Selection:</span> From
-                  comfort food to exotic cuisine, discover thousands of dishes.
-                </div>
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                <div>
-                  <span className="font-semibold">Easy Ordering:</span> A simple,
-                  intuitive app designed for your convenience.
-                </div>
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                <div>
-                  <span className="font-semibold">Fast Delivery:</span> Our
-                  network of friendly riders ensures your food arrives hot and
-                  fresh.
-                </div>
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                <div>
-                  <span className="font-semibold">Local Focus:</span> We champion
-                  your neighborhood's favorite spots and hidden gems.
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          {/* --- Meet the Team --- */}
-          <section>
-            <h2 className="text-3xl font-semibold text-[#e64048] mb-6 text-center">
-              Meet the Team
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-              {/* Team Member 1 */}
-              <div className="flex flex-col items-center">
-                <img
-                  className="w-32 h-32 rounded-full shadow-lg object-cover"
-                  src="https://placehold.co/200x200/e6e0e0/d31b27?text=CEO"
-                  alt="Founder Alex"
-                />
-                <h4 className="text-xl font-semibold mt-4">Alex Chen</h4>
-                <p className="text-[#d31b27] font-medium">Founder & CEO</p>
-              </div>
-              {/* Team Member 2 */}
-              <div className="flex flex-col items-center">
-                <img
-                  className="w-32 h-32 rounded-full shadow-lg object-cover"
-                  src="https://placehold.co/200x200/e6e0e0/d31b27?text=CTO"
-                  alt="CTO Maria"
-                />
-                <h4 className="text-xl font-semibold mt-4">Maria Gomez</h4>
-                <p className="text-[#d31b27] font-medium">Head of Tech</p>
-              </div>
-              {/* Team Member 3 */}
-              <div className="flex flex-col items-center">
-                <img
-                  className="w-32 h-32 rounded-full shadow-lg object-cover"
-                  src="https://placehold.co/200x200/e6e0e0/d31b27?text=Ops"
-                  alt="Ops Lead David"
-                />
-                <h4 className="text-xl font-semibold mt-4">David Lee</h4>
-                <p className="text-[#d31b27] font-medium">Head of Operations</p>
-              </div>
-            </div>
-          </section>
-
-          {/* --- Customer Love --- */}
-          <section>
-            <h2 className="text-3xl font-semibold text-[#e64048] mb-6 text-center">
-              A Word From Our Customers
-            </h2>
-            <div className="bg-[#e6e0e0] p-8 rounded-lg shadow-inner">
-              <div className="flex justify-center mb-2">
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-              </div>
-              <blockquote className="text-center text-xl italic text-gray-800">
-                "FOODORA has completely changed our weeknight dinners! The app is
-                so easy to use, and we've discovered so many amazing local
-                restaurants we never knew existed."
-              </blockquote>
-              <p className="text-center font-semibold text-gray-700 mt-4">
-                - Sarah J.
-              </p>
-            </div>
-          </section>
-
-          {/* Call to Action Button */}
-          <div className="text-center pt-8">
-            <Link to={"/restaurant"}>
-              <button
-                className={`py-3 px-8 text-lg font-bold text-white rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-0.5
-                bg-[#d31b27] hover:bg-[#e64048] focus:outline-none focus:ring-2 focus:ring-[#e64048] focus:ring-offset-2`}
-              >
-                Start Your Order
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Back Link */}
-        <p className="text-center text-sm text-gray-600 mt-12">
-          <Link to={"/"}
-            className="font-medium text-[#d31b27] hover:text-[#e64048] transition-colors duration-200"
-          >
-            Back to Home
-          </Link>
+    <div className="w-full bg-[#f6f5f3] font-sans text-[#1A1A1A] rounded-2xl">
+      {/* Hero Section */}
+      <div className="w-full bg-white py-20 px-4 sm:px-8 text-center border-b border-gray-100 rounded-2xl">
+        <h1 className="text-5xl font-bold text-[#1A1A1A] mb-4 tracking-tight">
+          Welcome to <span className="text-[#d31b27]">FOODORA</span>
+        </h1>
+        <p className="text-xl text-gray-500 max-w-2xl mx-auto font-light">
+          Your daily food adventure starts here. Bringing the best local flavors right to your doorstep.
         </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 space-y-20">
+
+        {/* Our Story */}
+        <section className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-bold mb-6 text-[#1A1A1A] border-l-4 border-[#d31b27] pl-4">Our Story</h2>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              FOODORA was born from a simple idea: good food should be easy to find and a joy to order.
+              We saw a world full of amazing local restaurants and passionate chefs, but not everyone
+              had the time to discover them.
+            </p>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              We wanted to bridge that gap, carefully curating a selection of the finest eateries
+              and ensuring that every meal delivered retains its chef's intended perfection.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <img
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              alt="Cooking"
+              className="w-full h-64 object-cover rounded-xl mb-6"
+            />
+            <p className="text-center italic text-gray-500">"Food is symbol of love when words are inadequate."</p>
+          </div>
+        </section>
+
+        {/* Our Values */}
+        <section>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#1A1A1A]">Our Core Values</h2>
+            <div className="w-24 h-1 bg-[#d31b27] mx-auto mt-4 rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center group">
+              <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Heart className="w-8 h-8 text-[#d31b27]" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Local Love</h3>
+              <p className="text-gray-600">Championing neighborhood eateries and supporting local businesses.</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center group">
+              <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Leaf className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Quality First</h3>
+              <p className="text-gray-600">Delivering only the freshest dishes with strict quality checks.</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center group">
+              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Zap className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Speed & Service</h3>
+              <p className="text-gray-600">Hot, fresh, and reliable delivery every single time.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us */}
+        <section className="bg-[#1A1A1A] text-white rounded-3xl p-12 overflow-hidden relative">
+          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-8">Why Choose FOODORA?</h2>
+              <ul className="space-y-6">
+                {[
+                  { title: "Vast Selection", desc: "Thousands of dishes from comfort food to gourmet." },
+                  { title: "Easy Ordering", desc: "A simple, intuitive app designed for your convenience." },
+                  { title: "Fast Delivery", desc: "Friendly riders ensuring your food arrives hot." },
+                  { title: "Local Focus", desc: "We find the hidden gems in your neighborhood." }
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <div className="bg-[#d31b27] p-1 rounded-full mr-4 mt-1">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <span className="font-bold text-lg block">{item.title}</span>
+                      <span className="text-gray-400">{item.desc}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="text-center">
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Selection"
+                className="rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white/10"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Meet the Team */}
+        <section>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#1A1A1A]">Meet the Team</h2>
+            <p className="text-gray-500 mt-2">The people behind the flavor.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {[
+              { name: "Ugyen", role: "Founder & CEO", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+              { name: "Dilliram", role: "Head of Tech", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+              { name: "Govinda", role: "Head of Operations", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+            ].map((member, i) => (
+              <div key={i} className="text-center group">
+                <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <h4 className="text-xl font-bold">{member.name}</h4>
+                <p className="text-[#d31b27] font-medium">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Testimonial */}
+        <section className="bg-white border border-gray-100 rounded-2xl p-12 text-center shadow-lg relative">
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#d31b27] p-3 rounded-full text-white">
+            <Star className="w-8 h-8 fill-current" />
+          </div>
+          <blockquote className="text-2xl font-serif italic text-gray-700 mb-6 mt-4">
+            "FOODORA has completely changed our weeknight dinners! The app is so easy to use,
+            and we've discovered so many amazing local restaurants."
+          </blockquote>
+          <div className="font-bold text-[#1A1A1A]">- Sarah J.</div>
+        </section>
+
+        {/* CTA */}
+        <div className="text-center py-8">
+          <Link to={"/restaurant"}>
+            <button className="bg-[#d31b27] hover:bg-[#b9151f] text-white font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg">
+              Explore Restaurants
+            </button>
+          </Link>
+        </div>
+
       </div>
     </div>
   );
 }
+
 export default About;
