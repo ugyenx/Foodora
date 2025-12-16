@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import MobileNavbar from "./components/MobileNavbar";
 import ReactDOM from "react-dom/client";
 import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
@@ -21,8 +22,13 @@ const App = () => {
 
   return (
     <Provider store={appStore}>
-      <div className="mx-4 md:mx-20 lg:mx-40 xl:mx-55">
-        {!hideNavbar && <Navbar />}
+      <div className="mx-4 md:mx-20 lg:mx-40 xl:mx-55 pb-20 md:pb-0">
+        {!hideNavbar && (
+          <>
+            <Navbar />
+            <MobileNavbar />
+          </>
+        )}
         <Outlet />
       </div>
     </Provider>

@@ -10,12 +10,9 @@ const Navbar = () => {
   const data = useSelector((store) => store.cart.items);
   const { isLoggedIn, user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+
 
   const handleLogout = () => {
     dispatch(logout());
@@ -62,7 +59,7 @@ const Navbar = () => {
             />
             {data.length > 0 && (
               <span className="absolute top-0 right-0 bg-[#d31b27] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform translate-x-1/4 -translate-y-1/4">
-                {data.length}
+                {data.reduce((total, item) => total + item.quantity, 0)}
               </span>
             )}
           </div>
@@ -111,47 +108,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Icon */}
-      <div className="md:hidden z-50 cursor-pointer" onClick={toggleMenu}>
-        {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-          <ul className="flex flex-col items-center gap-8 text-2xl font-semibold text-gray-900">
-            <Link to={"/"} onClick={toggleMenu}>
-              <li className="hover:text-(--primary)">Home</li>
-            </Link>
-            <Link to={"/restaurant"} onClick={toggleMenu}>
-              <li className="hover:text-(--primary)">Restaurant</li>
-            </Link>
-            <Link to={"/about"} onClick={toggleMenu}>
-              <li className="hover:text-(--primary)">About Us</li>
-            </Link>
-            <Link to={"/contact"} onClick={toggleMenu}>
-              <li className="hover:text-(--primary)">Contact</li>
-            </Link>
-          </ul>
-          <div className="flex flex-col items-center gap-6">
-            <Link to={"/cart"} onClick={toggleMenu}>
-              <div className="relative flex items-center p-2">
-                <CiShoppingCart className="text-4xl text-black" />
-                {data.length > 0 && (
-                  <span className="absolute top-0 right-0 bg-[#d31b27] text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center transform translate-x-1/4 -translate-y-1/4">
-                    {data.length}
-                  </span>
-                )}
-              </div>
-            </Link>
-            <Link to={"/login"} onClick={toggleMenu}>
-              <button className="bg-(--primary) text-white px-8 py-4 rounded-full text-xl hover:bg-(--my-color)">
-                Sign Up
-              </button>
-            </Link>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

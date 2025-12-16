@@ -1,4 +1,5 @@
 import React from "react";
+import RestaurantMenuShimmer from "./RestaurantMenuShimmer";
 import useFetchMenu from "../hooks/useFetchMenu";
 import { useParams } from "react-router-dom";
 import { FaCircle } from "react-icons/fa6";
@@ -11,7 +12,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const menuInfo = useFetchMenu(resId);
   if (menuInfo === null) {
-    return <h2>Wait still fetching</h2>;
+    return <RestaurantMenuShimmer />;
   }
   const {
     name,
@@ -32,9 +33,9 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   return (
-    <div className="mx-45">
+    <div className="mx-4 md:mx-20 lg:mx-45">
       <div>
-        <h2 className="text-3xl pl-2 font-bold tracking-wide mb-5">{name}</h2>
+        <h2 className="text-2xl md:text-3xl pl-2 font-bold tracking-wide mb-5">{name}</h2>
         <div className="bg-(--white-b) rounded-2xl border border-slate-900/10">
           <div className=" p-6 flex flex-col gap-2">
             <div className="flex items-center gap-2">
@@ -76,7 +77,7 @@ const RestaurantMenu = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10 mx-5">
+      <div className="mt-10 md:mx-5">
         {categories.map((items) => (
           <RestaurantCategories key={items.card.card.categoryId} data={items} restaurantInfo={restaurantInfo} />
         ))}
