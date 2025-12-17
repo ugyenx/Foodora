@@ -40,7 +40,7 @@ const Cart = () => {
   const [instructions, setInstructions] = useState('');
 
   // Calculations
-  const itemTotal = data.reduce((acc, curr) => { return acc + (curr.price / 100 * (curr.quantity || 1)) }, 0);
+  const itemTotal = data.reduce((acc, curr) => { return acc + ((curr.price|| curr.defaultPrice) / 100 * (curr.quantity || 1)) }, 0);
   const deliveryFee = 35;
   const platformFee = 6;
   const gst = itemTotal * 0.05; // 5% GST
@@ -116,7 +116,7 @@ const Cart = () => {
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold text-gray-700">{item.name}</h4>
-                        <div className="text-base text-gray-500 mt-1">₹{item.price / 100}</div>
+                        <div className="text-base text-gray-500 mt-1">₹{(item.price || item.defaultPrice)/ 100}</div>
                         {item.desc && <p className="text-sm text-gray-400 mt-1 line-clamp-1">{item.description}</p>}
                       </div>
                     </div>
@@ -139,7 +139,7 @@ const Cart = () => {
                         </button>
                       </div>
                       <div className="text-base text-gray-700 w-16 text-right">
-                        ₹{(item.price / 100) * (item.quantity || 1)}
+                        ₹{((item.price|| item.defaultPrice) / 100) * (item.quantity || 1)}
                       </div>
                     </div>
                   </div>
